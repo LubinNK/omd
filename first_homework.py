@@ -1,4 +1,8 @@
+"""First homework from AAA"""
+
+
 def get_user_answer():
+    """ Call answer from user """
     option = ''
     options = {'да': True, 'нет': False}
     while option not in options:
@@ -8,6 +12,7 @@ def get_user_answer():
 
 
 def step1():
+    """Starting step for duck"""
     print(
         'Утка-маляр 🦆 решила выпить зайти в бар. '
         'Взять ей зонтик? ☂️'
@@ -20,8 +25,9 @@ def step1():
 
 
 def step2_umbrella():
+    """Second step for duck with umbrella"""
     print(
-        'Утка приняла зонтик!\n' 
+        'Утка приняла зонтик!\n'
         'Теперь она не промокнет, если пойдет дождь :)\n'
         'Утка добралась до места, взять ей пиво?'
     )
@@ -33,6 +39,7 @@ def step2_umbrella():
 
 
 def step2_no_umbrella():
+    """Second step for duck without umbrella"""
     print(
         'Утке повезло, дождя не было, она дошла до бара!\n'
         'Она просит пиво, вы ей разрешаете?'
@@ -45,10 +52,12 @@ def step2_no_umbrella():
 
 
 def step3_beer():
+    """Third step for duck with beer"""
     print('Утка довольна, она любит Немецкое Нефильтрованное ...')
 
 
 def step3_no_beer():
+    """Third step for duck without beer"""
     print(
         'Утка расстроилась :(\n'
         'Она недовольна и ушла домой ...'

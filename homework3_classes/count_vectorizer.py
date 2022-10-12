@@ -20,8 +20,6 @@ class CountVectorizer:
     """ Count the amount of words from the vocabulary in the text """
     def __init__(self):
         self._feature_names = []
-        self._matrix = []
-        self._dict_words = {}
 
     def fit_transform(self, text: List[str]):
         """
@@ -31,26 +29,26 @@ class CountVectorizer:
         Count the matrix of the amount of each word in each string
         """
         self._feature_names = []
-        self._matrix = []
-        self._dict_words = {}
-        for string in text:
+        _matrix = []
+        _dict_words = {}
+        for n_string, string in enumerate(text):
             words = string.lower().split()
             for word in words:
-                self._dict_words[word] = 0
-        self._feature_names = self._dict_words.keys()
-        for string in text:
-            words = string.lower().split()
-            _dict_words_temp = self._dict_words.copy()
-            for word in words:
-                _dict_words_temp[word] += 1
-            self._matrix.append(list(map(lambda x: x[1], _dict_words_temp.items())))
-        return self._matrix
+                if word in _dict_words:
+                    _dict_words[word][n_string] += 1
+                else:
+                    _dict_words[word] = [0] * len(text)
+                    _dict_words[word][n_string] = 1
+        for n_string in range(len(text)):
+            _matrix.append([item[n_string] for word, item in _dict_words.items()])
+        self._feature_names = list(_dict_words)
+        return _matrix
 
     def get_features_names(self):
         """
         Just return feature words
         """
-        return list(self._feature_names)
+        return self._feature_names
 
 
 if __name__ == '__main__':

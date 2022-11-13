@@ -24,3 +24,11 @@ def test_year3():
         mocked_get_cases.return_value = {'currentDateTime': '13-11-2022'}
         with pytest.raises(ValueError):
             what_is_year_now()
+
+
+def test_year4():
+    """Test 4"""
+    with patch('json.load') as mocked_get_cases:
+        mocked_get_cases.return_value = {'DateTime': '13-11-2022'}
+        with pytest.raises(KeyError):
+            what_is_year_now()

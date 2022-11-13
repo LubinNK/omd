@@ -50,5 +50,5 @@ if __name__ == '__main__':
     morse_msg = '-- .- .. -....- .--. -.-- - .... --- -. -....- ..--- ----- .---- ----.'
     decoded_msg = decode(morse_msg)
     print(decoded_msg)
-    print(encode('+'))
+    print(encode('2019'))
     assert morse_msg == encode(decoded_msg)

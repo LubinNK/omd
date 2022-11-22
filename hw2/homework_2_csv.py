@@ -4,7 +4,7 @@
 def read_csv(file_path: str) -> list:
     """ Read csv-file Corp_Summary """
     data = []
-    with open(file_path, encoding="utf-8") as file:
+    with open(file_path, encoding='utf-8') as file:
         for string in file.readlines()[1:]:
             data_string = string.split(';')
             data_string[-2:] = map(float, data_string[-2:])
@@ -74,10 +74,10 @@ def get_report_of_departments(data: list) -> dict:
     sizes = get_size_of_departments()
     info_about_salary = all_about_salary_of_department()
     report_departments = {}
-    for key, size in sizes.items():
-        report_departments[key] = [key, str(size),
-                                   info_about_salary[key]['min-max'],
-                                   str(info_about_salary[key]['average'])]
+    for dep, size in sizes.items():
+        report_departments[dep] = [dep, str(size),
+                                   info_about_salary[dep]['min-max'],
+                                   str(info_about_salary[dep]['average'])]
     return report_departments
 
 

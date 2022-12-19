@@ -3,7 +3,7 @@
 
 class Pizza:
     """Main class for all pizzas"""
-    def __eq__(self, other):
+    def __eq__(self, other: 'Pizza'):
         if set(self.recipe) == set(other.recipe) \
            and self.size == other.size:
             return True
@@ -21,7 +21,7 @@ class Margherita(Pizza):
     recipe = ['tomato sauce', 'mozzarella', 'tomatoes']
     emoji = '🧀'
 
-    def __init__(self, size):
+    def __init__(self, size: str):
         self.size = size
         self.time = 30 if size == 'L' else 45
 
@@ -31,7 +31,7 @@ class Pepperoni(Pizza):
     recipe = ['tomato sauce', 'mozzarella', 'pepperoni']
     emoji = '🌶'
 
-    def __init__(self, size):
+    def __init__(self, size: str):
         self.size = size
         self.time = 25 if size == 'L' else 30
 
@@ -41,11 +41,11 @@ class Hawaiian(Pizza):
     recipe = ['tomato sauce', 'mozzarella', 'chicken', 'pineapples']
     emoji = '🍍'
 
-    def __init__(self, size):
+    def __init__(self, size: str):
         self.size = size
         self.time = 50 if size == 'L' else 60
 
 
-menu_dict = {'margherita': Margherita,
+MENU_DICT = {'margherita': Margherita,
              'pepperoni': Pepperoni,
              'hawaiian': Hawaiian}
